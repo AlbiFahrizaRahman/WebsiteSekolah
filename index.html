@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMPN Haurwangi 3</title>
+
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="google-site-verification=a-zuw_Zudu9cLh3OaEpyENisnkt5yFFMGsiREY7dwhk" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="header-container container">
+            <a href="#" class="logo" onclick="showPage('beranda')">
+                <div class="logo-img">H3</div>
+                <div class="logo-text">SMPN Haurwangi 3</div>
+            </a>
+            
+            <nav class="nav-desktop">
+                <ul>
+                    <li><a href="#beranda" onclick="showPage('beranda')" class="nav-link active">Beranda</a></li>
+                    <li><a href="#tentang" onclick="showPage('tentang')" class="nav-link">Tentang</a></li>
+                    <li class="submenu">
+                        <a href="#profil" class="nav-link">Profil</a>
+                        <div class="submenu-content">
+                            <a href="#profil-siswa" onclick="showPage('profil-siswa')">Siswa</a>
+                            <a href="#profil-guru" onclick="showPage('profil-guru')">Guru & Staff</a>
+                        </div>
+                    </li>
+                    <li><a href="#ekstrakurikuler" onclick="showPage('ekstrakurikuler')" class="nav-link">Ekstra</a></li>
+                    <li><a href="#dokumentasi" onclick="showPage('dokumentasi')" class="nav-link">Galeri</a></li>
+                    <li><a href="#kontak" onclick="showPage('kontak')" class="nav-link">Kontak</a></li>
+                </ul>
+            </nav>
+            
+            <button class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation - Improved with Cloud Design -->
+    <div class="nav-mobile">
+        <div class="mobile-header">
+            <div class="mobile-logo-container">
+                <div class="mobile-logo">H3</div>
+                <div class="mobile-logo-text">SMPN Haurwangi 3</div>
+            </div>
+            <button class="close-menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <!-- Tombol kembali dihapus sesuai permintaan -->
+        
+        <ul>
+            <li>
+                <a href="#beranda" onclick="showPage('beranda')" class="nav-link active">
+                    <i class="fas fa-home"></i> Beranda
+                </a>
+            </li>
+            
+            <li>
+                <a href="#tentang" onclick="showPage('tentang')" class="nav-link">
+                    <i class="fas fa-info-circle"></i> Tentang Sekolah
+                </a>
+            </li>
+            
+            <li>
+                <a href="javascript:void(0)" class="nav-link submenu-toggle">
+                    <i class="fas fa-user"></i> Profil
+                    <i class="fas fa-chevron-down" style="margin-left: auto; transition: transform 0.3s;"></i>
+                </a>
+                <div class="mobile-submenu">
+                    <a href="#profil-siswa" onclick="showPage('profil-siswa')">
+                        <i class="fas fa-user-graduate"></i> Profil Siswa
+                    </a>
+                    <a href="#profil-guru" onclick="showPage('profil-guru')">
+                        <i class="fas fa-chalkboard-teacher"></i> Profil Guru & Staff
+                    </a>
+                </div>
+            </li>
+            
+            <li>
+                <a href="#ekstrakurikuler" onclick="showPage('ekstrakurikuler')" class="nav-link">
+                    <i class="fas fa-volleyball-ball"></i> Ekstrakurikuler
+                </a>
+            </li>
+            
+            <li>
+                <a href="#dokumentasi" onclick="showPage('dokumentasi')" class="nav-link">
+                    <i class="fas fa-camera"></i> Dokumentasi
+                </a>
+            </li>
+            
+            <li>
+                <a href="#kontak" onclick="showPage('kontak')" class="nav-link">
+                    <i class="fas fa-phone"></i> Kontak
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="overlay"></div>
+
+    <!-- Page Contents -->
+    <main>
+        <!-- Beranda Page -->
+        <div id="beranda" class="page-content active">
+            <!-- Hero Section -->
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Selamat Datang di SMPN Haurwangi 3</h1>
+                        <p>Mewujudkan generasi penerus yang unggul, berkarakter, dan berprestasi dalam lingkungan belajar yang nyaman dan modern.</p>
+                        <a href="#tentang" class="btn" onclick="showPage('tentang')">Selengkapnya</a>
+                        
+                        <div class="hero-img">
+                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Siswa dan Guru" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- School Map Section -->
+            <section class="school-map">
+                <div class="container">
+                    <h2>Denah Sekolah</h2>
+                    <div class="map-container">
+                        <div class="map-img">
+                            <img src="https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Denah Sekolah" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Routine Section -->
+            <section class="routine">
+                <div class="container">
+                    <h2>Rutinitas Sekolah</h2>
+                    <div class="routine-cards">
+                        <div class="routine-card">
+                            <div class="routine-card-img">
+                                <img src="https://images.unsplash.com/photo-1584697964358-3e14ca57658b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Apel Pagi" loading="lazy">
+                            </div>
+                            <div class="routine-card-content">
+                                <h3>Apel Pagi</h3>
+                                <p>Kegiatan apel pagi setiap hari Senin untuk memulai minggu dengan semangat baru.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="routine-card">
+                            <div class="routine-card-img">
+                                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Kegiatan Belajar" loading="lazy">
+                            </div>
+                            <div class="routine-card-content">
+                                <h3>Kegiatan Belajar</h3>
+                                <p>Proses belajar mengajar yang interaktif dan menyenangkan dengan fasilitas modern.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="routine-card">
+                            <div class="routine-card-img">
+                                <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Ekstrakurikuler" loading="lazy">
+                            </div>
+                            <div class="routine-card-content">
+                                <h3>Ekstrakurikuler</h3>
+                                <p>Berbagai kegiatan ekstrakurikuler untuk mengembangkan bakat dan minast siswa.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="routine-card">
+                            <div class="routine-card-img">
+                                <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Olahraga" loading="lazy">
+                            </div>
+                            <div class="routine-card-content">
+                                <h3>Olahraga</h3>
+                                <p>Kegiatan olahraga rutin untuk menjaga kesehatan dan kebugaran siswa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- News Section -->
+            <section class="news">
+                <div class="container">
+                    <h2>Berita Terbaru</h2>
+                    <div class="news-grid">
+                        <div class="news-card">
+                            <div class="news-img">
+                                <img src="https://images.unsplash.com/photo-1584697964358-3e14ca57658b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Berita 1" loading="lazy">
+                            </div>
+                            <div class="news-content">
+                                <div class="news-date">12 Oktober 2023</div>
+                                <h3>Peringatan Hari Sumpah Pemuda</h3>
+                                <p>Sekolah kami mengadakan berbagai kegiatan dalam rangka memperingati Hari Sumpah Pemuda.</p>
+                                <a href="#" class="btn" style="margin-top: 15px;">Baca Selengkapnya</a>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-img">
+                                <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Berita 2" loading="lazy">
+                            </div>
+                            <div class="news-content">
+                                <div class="news-date">5 Oktober 2023</div>
+                                <h3>Kejuaraan Basket Antar Sekolah</h3>
+                                <p>Tim basket sekolah kami berhasil meraih juara kedua dalam kejuaraan basket antar sekolah.</p>
+                                <a href="#" class="btn" style="margin-top: 15px;">Baca Selengkapnya</a>
+                            </div>
+                        </div>
+                        
+                        <div class="news-card">
+                            <div class="news-img">
+                                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Berita 3" loading="lazy">
+                            </div>
+                            <div class="news-content">
+                                <div class="news-date">1 Oktober 2023</div>
+                                <h3>Workshop Teknologi Pendidikan</h3>
+                                <p>Guru-guru kami mengikuti workshop teknologi pendidikan untuk meningkatkan kualitas mengajar.</p>
+                                <a href="#" class="btn" style="margin-top: 15px;">Baca Selengkapnya</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Tentang Page -->
+        <div id="tentang" class="page-content">
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Tentang SMPN Haurwangi 3</h1>
+                        <p>Mengenal lebih dekat visi, misi, dan sejarah sekolah kami yang telah berdiri sejak 1995.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about">
+                <div class="container">
+                    <h2>Tentang Sekolah</h2>
+                    <div class="about-content">
+                        <div>
+                            <p>SMPN Haurwangi 3 adalah institusi pendidikan yang berkomitmen untuk memberikan pendidikan terbaik dengan pendekatan modern dan kurikulum terkini. Kami mempersiapkan siswa untuk menghadapi tantangan masa depan dengan bekal pengetahuan, keterampilan, dan karakter yang kuat.</p>
+                            
+                            <div class="vision-card">
+                                <div class="vision-icon">
+                                    <i class="fas fa-bullseye"></i>
+                                </div>
+                                <h3>Visi</h3>
+                                <p>Menjadi sekolah unggulan yang mencetak generasi penerus yang beriman, cerdas, mandiri, and berwawasan global.</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3>Misi</h3>
+                            <ul class="mission-list">
+                                <li class="mission-item">Menyelenggarakan pendidikan yang berkualitas dengan pendekatan pembelajaran yang inovatif.</li>
+                                <li class="mission-item">Mengembangkan potensi siswa secara optimal melalui program pendidikan yang holistik.</li>
+                                <li class="mission-item">Menanamkan nilai-nilai karakter yang kuat kepada seluruh warga sekolah.</li>
+                                <li class="mission-item">Membangun lingkungan sekolah yang nyaman, aman, and kondusif untuk belajar.</li>
+                                <li class="mission-item">Menjalin kerjasama yang baik dengan orang tua dan masyarakat untuk memajukan pendidikan.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="goals-grid">
+                        <div class="goal-card">
+                            <div class="goal-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>Akademik</h3>
+                            <p>Mencapai prestasi akademik yang unggul di tingkat regional dan nasional.</p>
+                        </div>
+                        
+                        <div class="goal-card">
+                            <div class="goal-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <h3>Non-Akademik</h3>
+                            <p>Mengukir prestasi di bidang olahraga, seni, dan kegiatan non-akademik lainnya.</p>
+                        </div>
+                        
+                        <div class="goal-card">
+                            <div class="goal-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Karakter</h3>
+                            <p>Membentuk siswa yang berkarakter kuat, disiplin, and bertanggung jawab.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section class="history" style="background-color: var(--light-gray);">
+                <div class="container">
+                    <h2>Sejarah Sekolah</h2>
+                    <div class="about-content">
+                        <div>
+                            <p>SMPN Haurwangi 3 didirikan pada tahun 1995 dengan visi memberikan pendidikan terbaik bagi generasi muda. Awalnya hanya memiliki 5 ruang kelas dan 50 siswa, sekarang telah berkembang menjadi sekolah dengan fasilitas lengkap dan lebih dari 900 siswa.</p>
+                            <p>Sepanjang perjalanannya, sekolah kami telah meraih berbagai prestasi dan pengakuan sebagai salah satu sekolah terbaik di region ini.</p>
+                        </div>
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1562813733-b31f71025d54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Sejarah Sekolah" style="border-radius: var(--card-border-radius); box-shadow: var(--shadow);" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Profil Siswa Page -->
+        <div id="profil-siswa" class="page-content">
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Profil Siswa</h1>
+                        <p>Mengenal lebih dekat siswa-siswa berprestasi dan berbagai kegiatan siswa di SMPN Haurwangi 3.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="student-profile">
+                <div class="container">
+                    <h2>Data Siswa</h2>
+                    <div class="student-cards">
+                        <div class="student-card">
+                            <div class="student-icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <h3>Kelas 7</h3>
+                            <div class="student-count">320</div>
+                            <p>Jumlah Siswa</p>
+                        </div>
+                        
+                        <div class="student-card">
+                            <div class="student-icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <h3>Kelas 8</h3>
+                            <div class="student-count">285</div>
+                            <p>Jumlah Siswa</p>
+                        </div>
+                        
+                        <div class="student-card">
+                            <div class="student-icon">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <h3>Kelas 9</h3>
+                            <div class="student-count">302</div>
+                            <p>Jumlah Siswa</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Achievement Section -->
+            <section class="achievement" style="background-color: var(--light-gray);">
+                <div class="container">
+                    <h2>Prestasi Siswa</h2>
+                    <div class="routine-cards">
+                        <div class="routine-card">
+                            <div class="routine-card-img">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Prestasi Akademik" loading="lazy">
+                            </div>
+                            <div class="routine-card-content">
+                                <h3>Prestasi Akademik</h3>
+                                <p>Siswa kami meraih berbagai prestasi akademik di tingkat regional dan nasional.</p>
+                                <a href="#" class="btn" style="margin-top: 15px;">Lihat Detail</a>
+                            </div>
+                        </div>
+                        
+                        <div class="routine-card">
+                            <div class="routine-card-img">
+                                <img src="https://images.unsplash.com/photo-1541252260730-0412e8e2108e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Prestasi Olahraga" loading="lazy">
+                            </div>
+                            <div class="routine-card-content">
+                                <h3>Prestasi Olahraga</h3>
+                                <p>Tim olahraga sekolah kami konsisten meraih juara dalam berbagai kejuaraan.</p>
+                                <a href="#" class="btn" style="margin-top: 15px;">Lihat Detail</a>
+                            </div>
+                        </div>
+                        
+                        <div class="routine-card">
+                            <div class="routine-card-img">
+                                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Prestasi Seni" loading="lazy">
+                            </div>
+                            <div class="routine-card-content">
+                                <h3>Prestasi Seni</h3>
+                                <p>Bakat seni siswa kami diakui melalui berbagai kompetisi dan pameran seni.</p>
+                                <a href="#" class="btn" style="margin-top: 15px;">Lihat Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Profil Guru Page -->
+        <div id="profil-guru" class="page-content">
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Profil Guru & Staff</h1>
+                        <p>Mengenal tenaga pengajar dan staff profesional yang mendidik dan membimbing siswa-siswa SMPN Haurwangi 3.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="teacher-profile">
+                <div class="container">
+                    <h2>Data Guru & Staff</h2>
+                    <div class="teacher-cards">
+                        <div class="teacher-card">
+                            <div class="teacher-icon">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                            </div>
+                            <h3>Guru</h3>
+                            <div class="teacher-count">45</div>
+                            <p>Tenaga Pengajar</p>
+                        </div>
+                        
+                        <div class="teacher-card">
+                            <div class="teacher-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h3>Staff Administrasi</h3>
+                            <div class="teacher-count">12</div>
+                            <p>Tenaga Administrasi</p>
+                        </div>
+                        
+                        <div class="teacher-card">
+                            <div class="teacher-icon">
+                                <i class="fas fa-user-cog"></i>
+                            </div>
+                            <h3>Tata Usaha</h3>
+                            <div class="teacher-count">8</div>
+                            <p>Tenaga Tata Usaha</p>
+                        </div>
+                        
+                        <div class="teacher-card">
+                            <div class="teacher-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <h3>Supporting Staff</h3>
+                            <div class="teacher-count">15</div>
+                            <p>Tenaga Pendukung</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Teacher List Section -->
+            <section class="teacher-list" style="background-color: var(--light-gray);">
+                <div class="container">
+                    <h2>Daftar Guru Berprestasi</h2>
+                    <div class="routine-cards">
+                        <div class="routine-card">
+                            <div class="routine-card-img">
+                                <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=c crop&w=600&q=80" alt="Guru Berprestasi 1" loading="lazy">
+                            </div>
+                            <div class="routine-card-content">
+                                <h3>Budi Santoso, M.Pd</h3>
+                                <p>Guru Matematika berprestasi tingkat nasional dengan pengalaman 15 tahun.</p>
+                                <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                            </div>
+                        </div>
+                        
+                        <div class="routine-card">
+                            <div class="routine-card-img">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru Berprestasi 2" loading="lazy">
+                            </div>
+                            <div class="routine-card-content">
+                                <h3>Dewi Rahayu, S.Pd</h3>
+                                <p>Guru Bahasa Indonesia peraih penghargaan guru inspiratif tahun 2022.</p>
+                                <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                            </div>
+                        </div>
+                        
+                        <div class="routine-card">
+                            <div class="routine-card-img">
+                                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru Berprestasi 3" loading="lazy">
+                            </div>
+                            <div class="routine-card-content">
+                                <h3>Joko Prasetyo, S.Pd</h3>
+                                <p>Guru Olahraga yang telah melatih tim basket sekolah meraih berbagai prestasi.</p>
+                                <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Ekstrakurikuler Page -->
+        <div id="ekstrakurikuler" class="page-content">
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Ekstrakurikuler</h1>
+                        <p>Menjelajahi berbagai kegiatan ekstrakurikuler yang ditawarkan oleh SMPN Haurwangi 3 untuk mengembangkan bakat and minat siswa.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="extracurricular">
+                <div class="container">
+                    <h2>Pilihan Ekstrakurikuler</h2>
+                    <div class="extracurricular-grid">
+                        <!-- Voli -->
+                        <div class="extracurricular-card">
+                            <div class="extracurricular-img">
+                                <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=c crop&w=600&q=80" alt="Voli" loading="lazy">
+                                <div class="extracurricular-icon">
+                                    <i class="fas fa-volleyball-ball"></i>
+                                </div>
+                            </div>
+                            <div class="extracurricular-content">
+                                <h3>Voli</h3>
+                                <p>Ekstrakurikuler voli melatih keterampilan bermain bola voli, kerjasama tim, dan menjaga kebugaran fisik.</p>
+                                <a href="#" class="btn">Selengkapnya</a>
+                            </div>
+                        </div>
+
+                        <!-- Futsal -->
+                        <div class="extracurricular-card">
+                            <div class="extracurricular-img">
+                                <img src="https://images.unsplash.com/photo-1516466723877-e4ec1d736c8a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Futsal" loading="lazy">
+                                <div class="extracurricular-icon">
+                                    <i class="fas fa-futbol"></i>
+                                </div>
+                            </div>
+                            <div class="extracurricular-content">
+                                <h3>Futsal</h3>
+                                <p>Ekstrakurikuler futsal mengembangkan keterampilan bermain bola, strategi tim, dan menjaga kesehatan tubuh.</p>
+                                <a href="#" class="btn">Selengkapnya</a>
+                            </div>
+                        </div>
+
+                        <!-- Badminton -->
+                        <div class="extracurricular-card">
+                            <div class="extracurricular-img">
+                                <img src="https://images.unsplash.com/photo-1599669454699-248893623464?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Badminton" loading="lazy">
+                                <div class="extracurricular-icon">
+                                    <i class="fas fa-table-tennis"></i>
+                                </div>
+                            </div>
+                            <div class="extracurricular-content">
+                                <h3>Badminton</h3>
+                                <p>Ekstrakurikuler bulu tangkis melatih ketangkasan, kecepatan, dan ketepatan dalam bermain.</p>
+                                <a href="#" class="btn">Selengkapnya</a>
+                            </div>
+                        </div>
+
+                        <!-- PMR -->
+                        <div class="extracurricular-card">
+                            <div class="extracurricular-img">
+                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="PMR" loading="lazy">
+                                <div class="extracurricular-icon">
+                                    <i class="fas fa-first-aid"></i>
+                                </div>
+                            </div>
+                            <div class="extracurricular-content">
+                                <h3>PMR</h3>
+                                <p>Palang Merah Remaja mengajarkan pertolongan pertama, kepedulian sosial, dan kesiapan dalam keadaan darurat.</p>
+                                <a href="#" class="btn">Selengkapnya</a>
+                            </div>
+                        </div>
+
+                        <!-- Pramuka -->
+                        <div class="extracurricular-card">
+                            <div class="extracurricular-img">
+                                <img src="https://images.unsplash.com/photo-1584697964358-3e14ca57658b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Pramuka" loading="lazy">
+                                <div class="extracurricular-icon">
+                                    <i class="fas fa-campground"></i>
+                                </div>
+                            </div>
+                            <div class="extracurricular-content">
+                                <h3>Pramuka</h3>
+                                <p>Kegiatan pramuka melatih kemandirian, kedisiplinan, kepemimpinan, dan kecintaan terhadap alam.</p>
+                                <a href="#" class="btn">Selengkapnya</a>
+                            </div>
+                        </div>
+
+                        <!-- Paskibra -->
+                        <div class="extracurricular-card">
+                            <div class="extracurricular-img">
+                                <img src="https://images.unsplash.com/photo-1619985638177-1c21023c8f85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Paskibra" loading="lazy">
+                                <div class="extracurricular-icon">
+                                    <i class="fas fa-flag"></i>
+                                </div>
+                            </div>
+                            <div class="extracurricular-content">
+                                <h3>Paskibra</h3>
+                                <p>Pasukan Pengibar Bendera melatih kedisiplinan, kekompakan, and kecintaan terhadap tanah air.</p>
+                                <a href="#" class="btn">Selengkapnya</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Dokumentasi Page -->
+        <div id="dokumentasi" class="page-content">
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Dokumentasi Kegiatan</h1>
+                        <p>Melihat berbagai momen and kegiatan yang telah dilakukan di SMPN Haurwangi 3.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="documentation">
+                <div class="container">
+                    <h2>Galeri Kegiatan</h2>
+                    <div class="gallery">
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Kegiatan Sekolah" class="gallery-img" loading="lazy">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus gallery-icon"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Kegiatan Belajar" class="gallery-img" loading="lazy">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus gallery-icon"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1519311965067-36d3e5f710d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Laboratorium" class="gallery-img" loading="lazy">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus gallery-icon"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Ekstrakurikuler" class="gallery-img" loading="lazy">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus gallery-icon"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1462536943532-57a629f6cc60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=c crop&w=600&q=80" alt="Perpustakaan" class="gallery-img" loading="lazy">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus gallery-icon"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="gallery-item">
+                            <img src="https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Olahraga" class="gallery-img" loading="lazy">
+                            <div class="gallery-overlay">
+                                <i class="fas fa-search-plus gallery-icon"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Event Calendar -->
+            <section class="calendar-section">
+                <div class="container">
+                    <h2>Kalender Kegiatan</h2>
+                    <div class="calendar">
+                        <div class="calendar-header">
+                            <button class="btn" style="padding: 8px 15px;"><i class="fas fa-chevron-left"></i></button>
+                            <h3>Oktober 2023</h3>
+                            <button class="btn" style="padding: 8px 15px;"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="calendar-grid">
+                            <div class="calendar-day" style="font-weight: bold;">Sen</div>
+                            <div class="calendar-day" style="font-weight: bold;">Sel</div>
+                            <div class="calendar-day" style="font-weight: bold;">Rab</div>
+                            <div class="calendar-day" style="font-weight: bold;">Kam</div>
+                            <div class="calendar-day" style="font-weight: bold;">Jum</div>
+                            <div class="calendar-day" style="font-weight: bold;">Sab</div>
+                            <div class="calendar-day" style="font-weight: bold;">Min</div>
+                            
+                            <!-- Empty days -->
+                            <div class="calendar-day"></div>
+                            <div class="calendar-day"></div>
+                            <div class="calendar-day"></div>
+                            <div class="calendar-day"></div>
+                            <div class="calendar-day"></div>
+                            <div class="calendar-day">1</div>
+                            <div class="calendar-day">2</div>
+                            
+                            <div class="calendar-day">3</div>
+                            <div class="calendar-day">4</div>
+                            <div class="calendar-day">5</div>
+                            <div class="calendar-day">6</div>
+                            <div class="calendar-day">7</div>
+                            <div class="calendar-day">8</div>
+                            <div class="calendar-day">9</div>
+                            
+                            <div class="calendar-day">10</div>
+                            <div class="calendar-day">11</div>
+                            <div class="calendar-day">12</div>
+                            <div class="calendar-day active">13</div>
+                            <div class="calendar-day">14</div>
+                            <div class="calendar-day">15</div>
+                            <div class="calendar-day">16</div>
+                            
+                            <div class="calendar-day">17</div>
+                            <div class="calendar-day">18</div>
+                            <div class="calendar-day">19</div>
+                            <div class="calendar-day">20</div>
+                            <div class="calendar-day">21</div>
+                            <div class="calendar-day">22</div>
+                            <div class="calendar-day">23</div>
+                            
+                            <div class="calendar-day">24</div>
+                            <div class="calendar-day">25</div>
+                            <div class="calendar-day">26</div>
+                            <div class="calendar-day">27</div>
+                            <div class="calendar-day">28</div>
+                            <div class="calendar-day">29</div>
+                            <div class="calendar-day">30</div>
+                            
+                            <div class="calendar-day">31</div>
+                            <div class="calendar-day"></div>
+                            <div class="calendar-day"></div>
+                            <div class="calendar-day"></div>
+                            <div class="calendar-day"></div>
+                            <div class="calendar-day"></div>
+                            <div class="calendar-day"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Kontak Page -->
+        <div id="kontak" class="page-content">
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Hubungi Kami</h1>
+                        <p>Jangan ragu untuk menghubungi kami untuk informasi lebih lanjut tentang SMPN Haurwangi 3.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact">
+                <div class="container">
+                    <h2>Kontak Kami</h2>
+                    <div class="contact-container">
+                        <div class="contact-form">
+                            <h3>Kotak Saran</h3>
+                            <form id="suggestionForm">
+                                <div class="form-group">
+                                    <label for="name">Nama</label>
+                                    <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda">
+                                    <div class="error-message">Nama harus diisi</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" class="form-control" placeholder="Masukkan email Anda">
+                                    <div class="error-message">Email harus valid</div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message">Pesan</label>
+                                    <textarea id="message" class="form-control" rows="5" placeholder="Tulis pesan Anda"></textarea>
+                                    <div class="error-message">Pesan harus diisi</div>
+                                </div>
+                                
+                                <button type="submit" class="btn">Kirim Pesan</button>
+                            </form>
+                        </div>
+                        
+                        <div>
+                            <h3>Media Sosial</h3>
+                            <p>Ikuti kami di media sosial untuk mendapatkan informasi terbaru tentang kegiatan sekolah.</p>
+                            
+                            <div class="social-media">
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-tiktok"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="social-icon">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            </div>
+
+                            <div style="margin-top: 30px;">
+                                <h3>Lokasi Sekolah</h3>
+                                <p><i class="fas fa-map-marker-alt"></i> Jalan Pendidikan No. 123, Haurwangi</p>
+                                <p><i class="fas fa-phone"></i> (021) 1234567</p>
+                                <p><i class="fas fa-envelope"></i> info@smpnhaurwangi3.sch.id</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Map Section -->
+            <section class="map" style="padding-top: 0;">
+                <div class="container">
+                    <div style="width: 100%; height: 400px; border-radius: var(--card-border-radius); overflow: hidden; box-shadow: var(--shadow);">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613502864!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5397167e8ab%3A0x6eefce191c8db2fd!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1609990669193!5m2!1sid!2sid" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <div class="footer-logo-text">SMPN Haurwangi 3</div>
+                    </div>
+                    <p>Mewujudkan generasi penerus yang unggul, berkarakter, dan berprestasi dalam lingkungan belajar yang nyaman dan modern.</p>
+                    
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Menu</h3>
+                    <ul>
+                        <li><a href="#beranda" onclick="showPage('beranda')">Beranda</a></li>
+                        <li><a href="#tentang" onclick="showPage('tentang')">Tentang Sekolah</a></li>
+                        <li><a href="#profil-siswa" onclick="showPage('profil-siswa')">Profil Siswa</a></li>
+                        <li><a href="#profil-guru" onclick="showPage('profil-guru')">Profil Guru</a></li>
+                        <li><a href="#ekstrakurikuler" onclick="showPage('ekstrakurikuler')">Ekstrakurikuler</a></li>
+                        <li><a href="#dokumentasi" onclick="showPage('dokumentasi')">Dokumentasi</a></li>
+                        <li><a href="#kontak" onclick="showPage('kontak')">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Tautan Penting</h3>
+                    <ul>
+                        <li><a href="#">Penerimaan Siswa Baru</a></li>
+                        <li><a href="#">Kalender Akademik</a></li>
+                        <li><a href="#">E-Learning</a></li>
+                        <li><a href="#">Perpustakaan Digital</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Kontak Kami</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Jalan Pendidikan No. 123, Haurwangi</p>
+                    <p><i class="fas fa-phone"></i> (021) 1234567</p>
+                    <p><i class="fas fa-envelope"></i> info@smpnhaurwangi3.sch.id</p>
+                    <p><i class="fas fa-clock"></i> Senin - Jumat: 07:00 - 16:00</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 SMPN Haurwangi 3. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
