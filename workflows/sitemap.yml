@@ -1,0 +1,33 @@
+name: Auto Update Sitemap
+
+on:
+  push:
+    branches:
+      - main   # ganti kalau branch utama lo bukan 'main'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Generate sitemap.xml
+        run: |
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">' >> sitemap.xml
+          echo '' >> sitemap.xml
+          echo '  <url>' >> sitemap.xml
+          echo '    <loc>https://smpnhaurwangi3-gamma.vercel.app/</loc>' >> sitemap.xml
+          echo "    <lastmod>$(date -u +"%Y-%m-%dT%H:%M:%SZ")</lastmod>" >> sitemap.xml
+          echo '  </url>' >> sitemap.xml
+          echo '' >> sitemap.xml
+          echo '</urlset>' >> sitemap.xml
+
+      - name: Commit sitemap.xml
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add sitemap.xml
+          git commit -m "Auto update sitemap [skip ci]" || echo "No changes to commit"
+          git push
