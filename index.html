@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMPN Haurwangi 3</title>
-
-    <!-- Google Site Verification -->
-    <meta name="google-site-verification" content="google-site-verification=a-zuw_Zudu9cLh3OaEpyENisnkt5yFFMGsiREY7dwhk" />
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -16,7 +12,7 @@
     <!-- Header & Navigation -->
     <header>
         <div class="header-container container">
-            <a href="#" class="logo" onclick="showPage('beranda')">
+            <a href="#" class="logo" onclick="showPage('beranda')" id="logo-click">
                 <div class="logo-img">H3</div>
                 <div class="logo-text">SMPN Haurwangi 3</div>
             </a>
@@ -35,6 +31,12 @@
                     <li><a href="#ekstrakurikuler" onclick="showPage('ekstrakurikuler')" class="nav-link">Ekstra</a></li>
                     <li><a href="#dokumentasi" onclick="showPage('dokumentasi')" class="nav-link">Galeri</a></li>
                     <li><a href="#kontak" onclick="showPage('kontak')" class="nav-link">Kontak</a></li>
+                    <!-- Easter Egg Game Icon (hidden by default) -->
+                    <li class="game-nav-item">
+                        <a href="#game" class="nav-link" onclick="showGamePanel()">
+                            <i class="fas fa-gamepad"></i>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             
@@ -105,10 +107,87 @@
                     <i class="fas fa-phone"></i> Kontak
                 </a>
             </li>
+            
+            <!-- Easter Egg Game Icon for Mobile (hidden by default) -->
+            <li class="game-nav-item">
+                <a href="#game" class="nav-link" onclick="showGamePanel()">
+                    <i class="fas fa-gamepad"></i> Game
+                </a>
+            </li>
         </ul>
     </div>
     
     <div class="overlay"></div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- Game Panel -->
+    <div class="game-panel" id="gamePanel">
+        <div class="game-panel-header">
+            <h2 class="game-panel-title">Pilih Game</h2>
+            <button class="game-panel-close" onclick="hideGamePanel()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="game-grid">
+            <div class="game-card" onclick="openGame('snake')">
+                <div class="game-card-img">
+                    <i class="fas fa-sticky-note"></i>
+                </div>
+                <div class="game-card-content">
+                    <h3 class="game-card-title">Snake Game</h3>
+                    <p class="game-card-desc">Game klasik ular yang harus memakan makanan dan tumbuh lebih panjang.</p>
+                    <span class="game-card-btn">Main Sekarang</span>
+                </div>
+            </div>
+            <div class="game-card" onclick="openGame('flappy')">
+                <div class="game-card-img">
+                    <i class="fas fa-dove"></i>
+                </div>
+                <div class="game-card-content">
+                    <h3 class="game-card-title">Flappy Bird</h3>
+                    <p class="game-card-desc">Terbang melalui pipa dengan mengepakkan sayap burung.</p>
+                    <span class="game-card-btn">Main Sekarang</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Preview -->
+    <div class="game-preview" id="gamePreview">
+        <div class="game-preview-header">
+            <h2 class="game-preview-title" id="gamePreviewTitle">Game</h2>
+            <button class="game-preview-close" onclick="closeGame()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <iframe class="game-preview-content" id="gameFrame" src="" frameborder="0"></iframe>
+    </div>
+
+    <!-- Social Media Note -->
+    <div class="social-note" id="socialNote">
+        <div class="social-note-header">
+            <h2 class="social-note-title">catatan</h2>
+            <button class="social-note-close" onclick="hideSocialNote()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="social-note-content">
+            <p>Kamu akan dipindahkan ke media sosial SMPN Haurwangi 3. Pastikan kamu mengikuti akun resmi kami untuk informasi terbaru!</p>
+            
+            <div class="social-note-platform" id="socialNotePlatform">
+                <i class="fab" id="socialNoteIcon"></i>
+                <span id="socialNoteName">Media Sosial</span>
+            </div>
+            
+            <p>Klik 'Lanjut' untuk membuka media sosial ini di tab baru.</p>
+        </div>
+        <div class="social-note-buttons">
+            <button class="social-note-btn cancel" onclick="hideSocialNote()">Batal</button>
+            <button class="social-note-btn continue" onclick="continueToSocial()">Lanjut</button>
+        </div>
+    </div>
 
     <!-- Page Contents -->
     <main>
@@ -172,7 +251,7 @@
                             </div>
                             <div class="routine-card-content">
                                 <h3>Ekstrakurikuler</h3>
-                                <p>Berbagai kegiatan ekstrakurikuler untuk mengembangkan bakat dan minast siswa.</p>
+                                <p>Berbagai kegiatan ekstrakurikuler untuk mengembangkan bakat dan minat siswa.</p>
                             </div>
                         </div>
                         
@@ -519,14 +598,14 @@
                         <!-- Voli -->
                         <div class="extracurricular-card">
                             <div class="extracurricular-img">
-                                <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=c crop&w=600&q=80" alt="Voli" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Voli" loading="lazy">
                                 <div class="extracurricular-icon">
                                     <i class="fas fa-volleyball-ball"></i>
                                 </div>
                             </div>
                             <div class="extracurricular-content">
                                 <h3>Voli</h3>
-                                <p>Ekstrakurikuler voli melatih keterampilan bermain bola voli, kerjasama tim, dan menjaga kebugaran fisik.</p>
+                                <p>Ekstrakurikuler voli melatih keterampilan bermain bola voli, kerjasama tim, and menjaga kebugaran fisik.</p>
                                 <a href="#" class="btn">Selengkapnya</a>
                             </div>
                         </div>
@@ -541,7 +620,7 @@
                             </div>
                             <div class="extracurricular-content">
                                 <h3>Futsal</h3>
-                                <p>Ekstrakurikuler futsal mengembangkan keterampilan bermain bola, strategi tim, dan menjaga kesehatan tubuh.</p>
+                                <p>Ekstrakurikuler futsal mengembangkan keterampilan bermain bola, strategi tim, and menjaga kesehatan tubuh.</p>
                                 <a href="#" class="btn">Selengkapnya</a>
                             </div>
                         </div>
@@ -549,14 +628,14 @@
                         <!-- Badminton -->
                         <div class="extracurricular-card">
                             <div class="extracurricular-img">
-                                <img src="https://images.unsplash.com/photo-1599669454699-248893623464?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Badminton" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1599669454699-248893623464?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwa90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Badminton" loading="lazy">
                                 <div class="extracurricular-icon">
                                     <i class="fas fa-table-tennis"></i>
                                 </div>
                             </div>
                             <div class="extracurricular-content">
                                 <h3>Badminton</h3>
-                                <p>Ekstrakurikuler bulu tangkis melatih ketangkasan, kecepatan, dan ketepatan dalam bermain.</p>
+                                <p>Ekstrakurikuler bulu tangkis melatih ketangkasan, kecepatan, and ketepatan dalam bermain.</p>
                                 <a href="#" class="btn">Selengkapnya</a>
                             </div>
                         </div>
@@ -571,7 +650,7 @@
                             </div>
                             <div class="extracurricular-content">
                                 <h3>PMR</h3>
-                                <p>Palang Merah Remaja mengajarkan pertolongan pertama, kepedulian sosial, dan kesiapan dalam keadaan darurat.</p>
+                                <p>Palang Merah Remaja mengajarkan pertolongan pertama, kepedulian sosial, and kesiapan dalam keadaan darurat.</p>
                                 <a href="#" class="btn">Selengkapnya</a>
                             </div>
                         </div>
@@ -586,7 +665,7 @@
                             </div>
                             <div class="extracurricular-content">
                                 <h3>Pramuka</h3>
-                                <p>Kegiatan pramuka melatih kemandirian, kedisiplinan, kepemimpinan, dan kecintaan terhadap alam.</p>
+                                <p>Kegiatan pramuka melatih kemandirian, kedisiplinan, kepemimpinan, and kecintaan terhadap alam.</p>
                                 <a href="#" class="btn">Selengkapnya</a>
                             </div>
                         </div>
@@ -654,7 +733,7 @@
                         </div>
                         
                         <div class="gallery-item">
-                            <img src="https://images.unsplash.com/photo-1462536943532-57a629f6cc60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=c crop&w=600&q=80" alt="Perpustakaan" class="gallery-img" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1462536943532-57a629f6cc60?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Perpustakaan" class="gallery-img" loading="lazy">
                             <div class="gallery-overlay">
                                 <i class="fas fa-search-plus gallery-icon"></i>
                             </div>
@@ -758,25 +837,31 @@
                 <div class="container">
                     <h2>Kontak Kami</h2>
                     <div class="contact-container">
-                        <div class="contact-form">
+                        <div class="contact-form-upgraded">
                             <h3>Kotak Saran</h3>
-                            <form id="suggestionForm">
-                                <div class="form-group">
-                                    <label for="name">Nama</label>
-                                    <input type="text" id="name" class="form-control" placeholder="Masukkan nama Anda">
-                                    <div class="error-message">Nama harus diisi</div>
+                            <form id="suggestionFormUpgraded">
+                                <div class="form-group-upgraded">
+                                    <label for="name-upgraded">Nama Lengkap</label>
+                                    <input type="text" id="name-upgraded" class="form-control-upgraded" placeholder="Masukkan nama lengkap Anda">
+                                    <div class="error-message-upgraded">Nama harus diisi</div>
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" class="form-control" placeholder="Masukkan email Anda">
-                                    <div class="error-message">Email harus valid</div>
+                                <div class="form-group-upgraded">
+                                    <label for="email-upgraded">Alamat Email</label>
+                                    <input type="email" id="email-upgraded" class="form-control-upgraded" placeholder="nama@contoh.com">
+                                    <div class="error-message-upgraded">Email harus valid</div>
+                                    <div class="form-hint">Kami tidak akan membagikan email Anda kepada siapapun</div>
                                 </div>
                                 
-                                <div class="form-group">
-                                    <label for="message">Pesan</label>
-                                    <textarea id="message" class="form-control" rows="5" placeholder="Tulis pesan Anda"></textarea>
-                                    <div class="error-message">Pesan harus diisi</div>
+                                <div class="form-group-upgraded">
+                                    <label for="message-upgraded">Pesan Anda</label>
+                                    <textarea id="message-upgraded" class="form-control-upgraded" rows="5" placeholder="Tulis pesan atau saran Anda di sini..."></textarea>
+                                    <div class="error-message-upgraded">Pesan harus diisi</div>
+                                </div>
+                                
+                                <div class="form-remember">
+                                    <input type="checkbox" id="remember-upgraded">
+                                    <label for="remember-upgraded">Ingat data saya untuk kunjungan berikutnya</label>
                                 </div>
                                 
                                 <button type="submit" class="btn">Kirim Pesan</button>
@@ -787,17 +872,17 @@
                             <h3>Media Sosial</h3>
                             <p>Ikuti kami di media sosial untuk mendapatkan informasi terbaru tentang kegiatan sekolah.</p>
                             
-                            <div class="social-media">
-                                <a href="#" class="social-icon">
+                            <div class="social-media-upgraded">
+                                <a href="#" class="social-icon-upgraded tiktok" onclick="showSocialNote('tiktok', 'TikTok', 'fab fa-tiktok')">
                                     <i class="fab fa-tiktok"></i>
                                 </a>
-                                <a href="#" class="social-icon">
+                                <a href="#" class="social-icon-upgraded facebook" onclick="showSocialNote('facebook', 'Facebook', 'fab fa-facebook-f')">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="#" class="social-icon">
+                                <a href="#" class="social-icon-upgraded instagram" onclick="showSocialNote('instagram', 'Instagram', 'fab fa-instagram')">
                                     <i class="fab fa-instagram"></i>
                                 </a>
-                                <a href="#" class="social-icon">
+                                <a href="#" class="social-icon-upgraded youtube" onclick="showSocialNote('youtube', 'YouTube', 'fab fa-youtube')">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </div>
@@ -873,10 +958,10 @@
                     <p><i class="fas fa-clock"></i> Senin - Jumat: 07:00 - 16:00</p>
                 </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2023 SMPN Haurwangi 3. All Rights Reserved.</p>
-            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2023 SMPN Haurwangi 3. All Rights Reserved.</p>
         </div>
     </footer>
 
