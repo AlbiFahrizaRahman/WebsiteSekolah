@@ -3,7 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SMPN Haurwangi 3</title>
+    <title>SMPN Haurwangi 3 - Sekolah Unggulan Berkarakter</title>
+    <meta name="description" content="SMPN Haurwangi 3 - Sekolah menengah pertama unggulan dengan karakter, prestasi akademik dan non-akademik terbaik di Haurwangi.">
+    <meta name="keywords" content="SMPN 3 Haurwangi, SMPN Haurwangi 3, sekolah unggulan, pendidikan berkualitas, Haurwangi, sekolah menengah pertama">
+    <meta name="author" content="SMPN Haurwangi 3">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="SMPN Haurwangi 3 - Sekolah Unggulan Berkarakter">
+    <meta property="og:description" content="SMPN Haurwangi 3 - Sekolah menengah pertama unggulan dengan karakter, prestasi akademik dan non-akademik terbaik di Haurwangi.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smpnhaurwangi3-gamma.vercel.app/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SMPN Haurwangi 3 - Sekolah Unggulan Berkarakter">
+    <meta name="twitter:description" content="SMPN Haurwangi 3 - Sekolah menengah pertama unggulan dengan karakter, prestasi akademik dan non-akademik terbaik di Haurwangi.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/AlbiFahrizaRahman/GaleriWEB/main/LOGO/20250919_192136.png">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/AlbiFahrizaRahman/GaleriWEB/main/LOGO/20250919_192136.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
@@ -12,8 +28,10 @@
     <!-- Header & Navigation -->
     <header>
         <div class="header-container container">
-            <a href="#" class="logo" onclick="showPage('beranda')" id="logo-click">
-                <div class="logo-img">H3</div>
+            <a href="#" class="logo" id="logo-click">
+                <div class="logo-img">
+                    <img src="https://raw.githubusercontent.com/AlbiFahrizaRahman/GaleriWEB/main/LOGO/20250919_192136.png" alt="Logo SMPN Haurwangi 3">
+                </div>
                 <div class="logo-text">SMPN Haurwangi 3</div>
             </a>
             
@@ -52,15 +70,15 @@
     <div class="nav-mobile">
         <div class="mobile-header">
             <div class="mobile-logo-container">
-                <div class="mobile-logo">H3</div>
+                <div class="mobile-logo">
+                    <img src="https://raw.githubusercontent.com/AlbiFahrizaRahman/GaleriWEB/main/LOGO/20250919_192136.png" alt="Logo SMPN Haurwangi 3">
+                </div>
                 <div class="mobile-logo-text">SMPN Haurwangi 3</div>
             </div>
             <button class="close-menu">
                 <i class="fas fa-times"></i>
             </button>
         </div>
-        
-        <!-- Tombol kembali dihapus sesuai permintaan -->
         
         <ul>
             <li>
@@ -78,7 +96,7 @@
             <li>
                 <a href="javascript:void(0)" class="nav-link submenu-toggle">
                     <i class="fas fa-user"></i> Profil
-                    <i class="fas fa-chevron-down" style="margin-left: auto; transition: transform 0.3s;"></i>
+                    <i class="fas fa-chevron-down" style="margin-left: auto;"></i>
                 </a>
                 <div class="mobile-submenu">
                     <a href="#profil-siswa" onclick="showPage('profil-siswa')">
@@ -181,11 +199,28 @@
                 <span id="socialNoteName">Media Sosial</span>
             </div>
             
-            <p>Klik 'Lanjut' untuk membuka media sosial ini di tab baru.</p>
+            <p>Berpindah ke <span id="socialNoteName2">media sosial</span> dalam <span id="countdown">5</span> detik...</p>
         </div>
         <div class="social-note-buttons">
             <button class="social-note-btn cancel" onclick="hideSocialNote()">Batal</button>
             <button class="social-note-btn continue" onclick="continueToSocial()">Lanjut</button>
+        </div>
+    </div>
+
+    <!-- Login Protection -->
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-form">
+            <h2>Login Admin</h2>
+            <div class="form-group">
+                <label for="adminUsername">Username</label>
+                <input type="text" id="adminUsername" placeholder="Masukkan username">
+            </div>
+            <div class="form-group">
+                <label for="adminPassword">Password</label>
+                <input type="password" id="adminPassword" placeholder="Masukkan password">
+            </div>
+            <button class="btn" onclick="adminLogin()">Login</button>
+            <div class="login-error" id="loginError">Username atau password salah!</div>
         </div>
     </div>
 
@@ -197,12 +232,14 @@
             <section class="hero">
                 <div class="container">
                     <div class="hero-content">
-                        <h1>Selamat Datang di SMPN Haurwangi 3</h1>
-                        <p>Mewujudkan generasi penerus yang unggul, berkarakter, dan berprestasi dalam lingkungan belajar yang nyaman dan modern.</p>
-                        <a href="#tentang" class="btn" onclick="showPage('tentang')">Selengkapnya</a>
-                        
                         <div class="hero-img">
-                            <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Siswa dan Guru" loading="lazy">
+                            <img src="https://raw.githubusercontent.com/AlbiFahrizaRahman/GaleriWEB/main/IMG_0206.JPG" alt="Siswa dan Guru SMPN Haurwangi 3" loading="lazy">
+                        </div>
+                        
+                        <div class="hero-text">
+                            <h1>Selamat Datang di <span class="highlight">SMPN Haurwangi 3</span></h1>
+                            <p>Mewujudkan generasi penerus yang unggul, berkarakter, dan berprestasi dalam lingkungan belajar yang nyaman dan modern.</p>
+                            <a href="#tentang" class="btn" onclick="showPage('tentang')">Selengkapnya</a>
                         </div>
                     </div>
                 </div>
@@ -545,7 +582,7 @@
                     <div class="routine-cards">
                         <div class="routine-card">
                             <div class="routine-card-img">
-                                <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=c crop&w=600&q=80" alt="Guru Berprestasi 1" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru Berprestasi 1" loading="lazy">
                             </div>
                             <div class="routine-card-content">
                                 <h3>Budi Santoso, M.Pd</h3>
@@ -748,78 +785,6 @@
                     </div>
                 </div>
             </section>
-
-            <!-- Event Calendar -->
-            <section class="calendar-section">
-                <div class="container">
-                    <h2>Kalender Kegiatan</h2>
-                    <div class="calendar">
-                        <div class="calendar-header">
-                            <button class="btn" style="padding: 8px 15px;"><i class="fas fa-chevron-left"></i></button>
-                            <h3>Oktober 2023</h3>
-                            <button class="btn" style="padding: 8px 15px;"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                        <div class="calendar-grid">
-                            <div class="calendar-day" style="font-weight: bold;">Sen</div>
-                            <div class="calendar-day" style="font-weight: bold;">Sel</div>
-                            <div class="calendar-day" style="font-weight: bold;">Rab</div>
-                            <div class="calendar-day" style="font-weight: bold;">Kam</div>
-                            <div class="calendar-day" style="font-weight: bold;">Jum</div>
-                            <div class="calendar-day" style="font-weight: bold;">Sab</div>
-                            <div class="calendar-day" style="font-weight: bold;">Min</div>
-                            
-                            <!-- Empty days -->
-                            <div class="calendar-day"></div>
-                            <div class="calendar-day"></div>
-                            <div class="calendar-day"></div>
-                            <div class="calendar-day"></div>
-                            <div class="calendar-day"></div>
-                            <div class="calendar-day">1</div>
-                            <div class="calendar-day">2</div>
-                            
-                            <div class="calendar-day">3</div>
-                            <div class="calendar-day">4</div>
-                            <div class="calendar-day">5</div>
-                            <div class="calendar-day">6</div>
-                            <div class="calendar-day">7</div>
-                            <div class="calendar-day">8</div>
-                            <div class="calendar-day">9</div>
-                            
-                            <div class="calendar-day">10</div>
-                            <div class="calendar-day">11</div>
-                            <div class="calendar-day">12</div>
-                            <div class="calendar-day active">13</div>
-                            <div class="calendar-day">14</div>
-                            <div class="calendar-day">15</div>
-                            <div class="calendar-day">16</div>
-                            
-                            <div class="calendar-day">17</div>
-                            <div class="calendar-day">18</div>
-                            <div class="calendar-day">19</div>
-                            <div class="calendar-day">20</div>
-                            <div class="calendar-day">21</div>
-                            <div class="calendar-day">22</div>
-                            <div class="calendar-day">23</div>
-                            
-                            <div class="calendar-day">24</div>
-                            <div class="calendar-day">25</div>
-                            <div class="calendar-day">26</div>
-                            <div class="calendar-day">27</div>
-                            <div class="calendar-day">28</div>
-                            <div class="calendar-day">29</div>
-                            <div class="calendar-day">30</div>
-                            
-                            <div class="calendar-day">31</div>
-                            <div class="calendar-day"></div>
-                            <div class="calendar-day"></div>
-                            <div class="calendar-day"></div>
-                            <div class="calendar-day"></div>
-                            <div class="calendar-day"></div>
-                            <div class="calendar-day"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
         </div>
 
         <!-- Kontak Page -->
@@ -876,9 +841,6 @@
                                 <a href="#" class="social-icon-upgraded tiktok" onclick="showSocialNote('tiktok', 'TikTok', 'fab fa-tiktok')">
                                     <i class="fab fa-tiktok"></i>
                                 </a>
-                                <a href="#" class="social-icon-upgraded facebook" onclick="showSocialNote('facebook', 'Facebook', 'fab fa-facebook-f')">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
                                 <a href="#" class="social-icon-upgraded instagram" onclick="showSocialNote('instagram', 'Instagram', 'fab fa-instagram')">
                                     <i class="fab fa-instagram"></i>
                                 </a>
@@ -902,7 +864,7 @@
             <section class="map" style="padding-top: 0;">
                 <div class="container">
                     <div style="width: 100%; height: 400px; border-radius: var(--card-border-radius); overflow: hidden; box-shadow: var(--shadow);">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613502864!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5397167e8ab%3A0x6eefce191c8db2fd!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1609990669193!5m2!1sid!2sid" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613502864!3d-6.194741395493371!2m3!1f0!2f0!3f!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5397167e8ab%3A0x6eefce191c8db2fd!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1609990669193!5m2!1sid!2sid" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" loading="lazy"></iframe>
                     </div>
                 </div>
             </section>
@@ -920,10 +882,9 @@
                     <p>Mewujudkan generasi penerus yang unggul, berkarakter, dan berprestasi dalam lingkungan belajar yang nyaman dan modern.</p>
                     
                     <div class="footer-social">
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="footer-social-link" data-platform="tiktok"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="footer-social-link" data-platform="instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="footer-social-link" data-platform="youtube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 
@@ -940,16 +901,6 @@
                     </ul>
                 </div>
                 
-                <div class="footer-links">
-                    <h3>Tautan Penting</h3>
-                    <ul>
-                        <li><a href="#">Penerimaan Siswa Baru</a></li>
-                        <li><a href="#">Kalender Akademik</a></li>
-                        <li><a href="#">E-Learning</a></li>
-                        <li><a href="#">Perpustakaan Digital</a></li>
-                    </ul>
-                </div>
-                
                 <div class="footer-contact">
                     <h3>Kontak Kami</h3>
                     <p><i class="fas fa-map-marker-alt"></i> Jalan Pendidikan No. 123, Haurwangi</p>
@@ -962,6 +913,12 @@
         
         <div class="footer-bottom">
             <p>&copy; 2023 SMPN Haurwangi 3. All Rights Reserved.</p>
+            <div class="reset-data-container" style="margin-top: 15px;">
+                <button class="reset-data-btn" onclick="showLoginProtection()">
+                    <i class="fas fa-lock"></i>
+                    Admin Panel
+                </button>
+            </div>
         </div>
     </footer>
 
