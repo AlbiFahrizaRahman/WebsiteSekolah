@@ -198,29 +198,10 @@
                 <i class="fab" id="socialNoteIcon"></i>
                 <span id="socialNoteName">Media Sosial</span>
             </div>
-            
-            <p>Berpindah ke <span id="socialNoteName2">media sosial</span> dalam <span id="countdown">5</span> detik...</p>
         </div>
         <div class="social-note-buttons">
             <button class="social-note-btn cancel" onclick="hideSocialNote()">Batal</button>
             <button class="social-note-btn continue" onclick="continueToSocial()">Lanjut</button>
-        </div>
-    </div>
-
-    <!-- Login Protection -->
-    <div class="login-overlay" id="loginOverlay">
-        <div class="login-form">
-            <h2>Login Admin</h2>
-            <div class="form-group">
-                <label for="adminUsername">Username</label>
-                <input type="text" id="adminUsername" placeholder="Masukkan username">
-            </div>
-            <div class="form-group">
-                <label for="adminPassword">Password</label>
-                <input type="password" id="adminPassword" placeholder="Masukkan password">
-            </div>
-            <button class="btn" onclick="adminLogin()">Login</button>
-            <div class="login-error" id="loginError">Username atau password salah!</div>
         </div>
     </div>
 
@@ -578,38 +559,169 @@
             <!-- Teacher List Section -->
             <section class="teacher-list" style="background-color: var(--light-gray);">
                 <div class="container">
-                    <h2>Daftar Guru Berprestasi</h2>
-                    <div class="routine-cards">
-                        <div class="routine-card">
-                            <div class="routine-card-img">
-                                <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru Berprestasi 1" loading="lazy">
-                            </div>
-                            <div class="routine-card-content">
-                                <h3>Budi Santoso, M.Pd</h3>
-                                <p>Guru Matematika berprestasi tingkat nasional dengan pengalaman 15 tahun.</p>
-                                <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
-                            </div>
+                    <h2>Daftar Guru</h2>
+                    <div class="teacher-scroll-container">
+                        <div class="teacher-scroll-controls">
+                            <button class="scroll-btn left" onclick="scrollTeachers('left')">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="scroll-btn right" onclick="scrollTeachers('right')">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
                         </div>
-                        
-                        <div class="routine-card">
-                            <div class="routine-card-img">
-                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru Berprestasi 2" loading="lazy">
+                        <div class="teacher-scroll" id="teacherScroll">
+                            <div class="routine-card">
+                                <div class="routine-card-img">
+                                    <img src="https://images.unsplash.com/photo-1566753323558-f4e0952af115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru 1" loading="lazy">
+                                </div>
+                                <div class="routine-card-content">
+                                    <h3>Budi Santoso, M.Pd</h3>
+                                    <p>Guru Matematika berprestasi tingkat nasional dengan pengalaman 15 tahun.</p>
+                                    <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                                </div>
                             </div>
-                            <div class="routine-card-content">
-                                <h3>Dewi Rahayu, S.Pd</h3>
-                                <p>Guru Bahasa Indonesia peraih penghargaan guru inspiratif tahun 2022.</p>
-                                <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                            
+                            <div class="routine-card">
+                                <div class="routine-card-img">
+                                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru 2" loading="lazy">
+                                </div>
+                                <div class="routine-card-content">
+                                    <h3>Dewi Rahayu, S.Pd</h3>
+                                    <p>Guru Bahasa Indonesia peraih penghargaan guru inspiratif tahun 2022.</p>
+                                    <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                                </div>
                             </div>
-                        </div>
-                        
-                        <div class="routine-card">
-                            <div class="routine-card-img">
-                                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru Berprestasi 3" loading="lazy">
+                            
+                            <div class="routine-card">
+                                <div class="routine-card-img">
+                                    <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru 3" loading="lazy">
+                                </div>
+                                <div class="routine-card-content">
+                                    <h3>Joko Prasetyo, S.Pd</h3>
+                                    <p>Guru Olahraga yang telah melatih tim basket sekolah meraih berbagai prestasi.</p>
+                                    <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                                </div>
                             </div>
-                            <div class="routine-card-content">
-                                <h3>Joko Prasetyo, S.Pd</h3>
-                                <p>Guru Olahraga yang telah melatih tim basket sekolah meraih berbagai prestasi.</p>
-                                <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                            
+                            <div class="routine-card">
+                                <div class="routine-card-img">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru 4" loading="lazy">
+                                </div>
+                                <div class="routine-card-content">
+                                    <h3>Ahmad Fauzi, M.Si</h3>
+                                    <p>Guru Fisika dengan pengalaman 12 tahun dan prestasi olimpiade sains.</p>
+                                    <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                                </div>
+                            </div>
+                            
+                            <div class="routine-card">
+                                <div class="routine-card-img">
+                                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru 5" loading="lazy">
+                                </div>
+                                <div class="routine-card-content">
+                                    <h3>Siti Nurhaliza, S.Pd</h3>
+                                    <p>Guru Bahasa Inggris dengan sertifikat internasional dan pengalaman mengajar di luar negeri.</p>
+                                    <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                                </div>
+                            </div>
+                            
+                            <div class="routine-card">
+                                <div class="routine-card-img">
+                                    <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru 6" loading="lazy">
+                                </div>
+                                <div class="routine-card-content">
+                                    <h3>Eko Prasetyo, S.Kom</h3>
+                                    <p>Guru TIK yang ahli dalam pengembangan aplikasi pembelajaran digital.</p>
+                                    <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                                </div>
+                            </div>
+                            
+                            <div class="routine-card">
+                                <div class="routine-card-img">
+                                    <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru 7" loading="lazy">
+                                </div>
+                                <div class="routine-card-content">
+                                    <h3>Rina Susanti, M.Pd</h3>
+                                    <p>Guru Biologi dengan penelitian di bidang lingkungan dan konservasi.</p>
+                                    <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                                </div>
+                            </div>
+                            
+                            <div class="routine-card">
+                                <div class="routine-card-img">
+                                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru 8" loading="lazy">
+                                </div>
+                                <div class="routine-card-content">
+                                    <h3>Agus Wijaya, S.Pd</h3>
+                                    <p>Guru Sejarah dengan pendekatan storytelling yang menarik perhatian siswa.</p>
+                                    <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                                </div>
+                            </div>
+                            
+                            <div class="routine-card">
+                                <div class="routine-card-img">
+                                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru 9" loading="lazy">
+                                </div>
+                                <div class="routine-card-content">
+                                    <h3>Maya Sari, S.Pd</h3>
+                                    <p>Guru Seni Budaya dengan karya seni telah dipamerkan di tingkat nasional.</p>
+                                    <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                                </div>
+                            </div>
+                            
+                            <div class="routine-card">
+                                <div class="routine-card-img">
+                                    <img src="https://images.unsplash.com/photo-1554080351-a76ca4bcf599?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru 10" loading="lazy">
+                                </div>
+                                <div class="routine-card-content">
+                                    <h3>Heru Santoso, S.Pd</h3>
+                                    <p>Guru PKn dengan metode diskusi yang aktif dan partisipatif.</p>
+                                    <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                                </div>
+                            </div>
+                            
+                            <div class="routine-card">
+                                <div class="routine-card-img">
+                                    <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru 11" loading="lazy">
+                                </div>
+                                <div class="routine-card-content">
+                                    <h3>Fitri Handayani, M.Pd</h3>
+                                    <p>Guru Bimbingan Konseling dengan sertifikat profesi konselor sekolah.</p>
+                                    <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                                </div>
+                            </div>
+                            
+                            <div class="routine-card">
+                                <div class="routine-card-img">
+                                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru 12" loading="lazy">
+                                </div>
+                                <div class="routine-card-content">
+                                    <h3>Fajar Nugroho, S.Pd</h3>
+                                    <p>Guru Pendidikan Agama dengan pendekatan karakter dan nilai-nilai universal.</p>
+                                    <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                                </div>
+                            </div>
+                            
+                            <div class="routine-card">
+                                <div class="routine-card-img">
+                                    <img src="https://images.unsplash.com/photo-1539571696357-568926c02c33?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru 13" loading="lazy">
+                                </div>
+                                <div class="routine-card-content">
+                                    <h3>Lestari Wulandari, S.Pd</h3>
+                                    <p>Guru Kimia dengan pengalaman laboratorium dan penelitian ilmiah.</p>
+                                    <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                                </div>
+                            </div>
+                            
+                            <div class="routine-card">
+                                <div class="routine-card-img">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Guru 14" loading="lazy">
+                                </div>
+                                <div class="routine-card-content">
+                                    <h3>Rizki Firmansyah, S.Pd</h3>
+                                    <p>Guru Geografi dengan keahlian dalam teknologi pemetaan dan GIS.</p>
+                                    <a href="#" class="btn" style="margin-top: 15px;">Profil Lengkap</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -864,7 +976,7 @@
             <section class="map" style="padding-top: 0;">
                 <div class="container">
                     <div style="width: 100%; height: 400px; border-radius: var(--card-border-radius); overflow: hidden; box-shadow: var(--shadow);">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613502864!3d-6.194741395493371!2m3!1f0!2f0!3f!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5397167e8ab%3A0x6eefce191c8db2fd!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1609990669193!5m2!1sid!2sid" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.521260322283!2d106.8195613502864!3d-6.194741395493371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5397167e8ab%3A0x6eefce191c8db2fd!2sMonumen%20Nasional!5e0!3m2!1sid!2sid!4v1609990669193!5m2!1sid!2sid" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0" loading="lazy"></iframe>
                     </div>
                 </div>
             </section>
@@ -914,13 +1026,38 @@
         <div class="footer-bottom">
             <p>&copy; 2023 SMPN Haurwangi 3. All Rights Reserved.</p>
             <div class="reset-data-container" style="margin-top: 15px;">
-                <button class="reset-data-btn" onclick="showLoginProtection()">
-                    <i class="fas fa-lock"></i>
-                    Admin Panel
+                <button class="reset-data-btn" onclick="showResetConfirmation()">
+                    <i class="fas fa-sync-alt"></i>
+                    Reset Data
                 </button>
             </div>
         </div>
     </footer>
+
+    <!-- Reset Confirmation Modal -->
+    <div class="reset-confirmation" id="resetConfirmation">
+        <div class="reset-confirmation-content">
+            <div class="reset-confirmation-header">
+                <h3>Konfirmasi Reset Data</h3>
+                <button class="reset-confirmation-close" onclick="hideResetConfirmation()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="reset-confirmation-body">
+                <p>Apakah Anda yakin ingin mereset semua data yang tersimpan di browser ini? Tindakan ini akan:</p>
+                <ul>
+                    <li>Menghapus data formulir yang tersimpan</li>
+                    <li>Menghapus status easter egg yang telah dibuka</li>
+                    <li>Menghapus preferensi pengguna</li>
+                </ul>
+                <p><strong>Catatan:</strong> Tindakan ini tidak dapat dibatalkan dan hanya memengaruhi browser ini.</p>
+            </div>
+            <div class="reset-confirmation-footer">
+                <button class="btn cancel" onclick="hideResetConfirmation()">Batal</button>
+                <button class="btn reset" onclick="resetData()">Reset Data</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
