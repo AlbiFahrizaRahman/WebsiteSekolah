@@ -473,3 +473,91 @@ document.addEventListener('keydown', function(e) {
         }
     }
 });
+
+// Reset Data Functionality
+function showResetConfirmation() {
+    const resetConfirmation = document.getElementById('resetConfirmation');
+    resetConfirmation.classList.add('active');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function hideResetConfirmation() {
+    const resetConfirmation = document.getElementById('resetConfirmation');
+    resetConfirmation.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+function resetData() {
+    // Clear localStorage
+    localStorage.removeItem('contactFormName');
+    localStorage.removeItem('contactFormEmail');
+    localStorage.removeItem('EasterEggUnlocked');
+    localStorage.removeItem('EasterEggUnlockedAt');
+    
+    // Reset form if on contact page
+    if (document.getElementById('kontak').classList.contains('active')) {
+        const formUpgraded = document.getElementById('suggestionFormUpgraded');
+        if (formUpgraded) formUpgraded.reset();
+        
+        const rememberCheckbox = document.getElementById('remember-upgraded');
+        if (rememberCheckbox) rememberCheckbox.checked = false;
+    }
+    
+    // Lock game feature if unlocked
+    const gameNavItems = document.querySelectorAll('.game-nav-item');
+    gameNavItems.forEach(item => {
+        item.classList.remove('unlocked');
+    });
+    
+    // Show success message
+    showToast('success', 'Reset Berhasil', 'Semua data telah direset dari browser ini.');
+    
+    // Hide confirmation modal
+    hideResetConfirmation();
+}
+
+// Teacher scroll functionality
+function scrollTeachers(direction) {
+    const teacherScroll = document.getElementById('teacherScroll');
+    const scrollAmount = 320; // Width of one card + gap
+    
+    if (direction === 'left') {
+        teacherScroll.scrollLeft -= scrollAmount;
+    } else {
+        teacherScroll.scrollLeft += scrollAmount;
+    }
+}
+
+// Prevent scroll propagation from teacher scroll to the main page
+document.addEventListener('DOMContentLoaded', function() {
+    const teacherScroll = document.getElementById('teacherScroll');
+    
+    if (teacherScroll) {
+        teacherScroll.addEventListener('wheel', function(e) {
+            // Only prevent default if we're scrolling horizontally
+            if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        // For touch devices
+        let touchStartX = 0;
+        let touchScrollLeft = 0;
+        
+        teacherScroll.addEventListener('touchstart', function(e) {
+            touchStartX = e.touches[0].clientX;
+            touchScrollLeft = teacherScroll.scrollLeft;
+        }, { passive: true });
+        
+        teacherScroll.addEventListener('touchmove', function(e) {
+            if (!touchStartX) return;
+            
+            const touchX = e.touches[0].clientX;
+            const walk = (touchStartX - touchX) * 2; // Scroll speed
+            
+            teacherScroll.scrollLeft = touchScrollLeft + walk;
+        }, { passive: true });
+    }
+});
